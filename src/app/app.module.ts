@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,16 +15,24 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { GenreComponent } from './genre/genre.component';
+import { DirectorComponent } from './director/director.component';
+import { SynopsisComponent } from './synopsis/synopsis.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const appRoutes: Routes = [
-  { path: 'welcome', component: WelcomePageComponent },
-  { path: 'movies', component: MovieCardComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  {path: 'welcome', component: WelcomePageComponent},
+  {path: 'movies', component: MovieCardComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: '', redirectTo: 'welcome', pathMatch: 'prefix'}
 ];
 
 @NgModule({
@@ -33,22 +41,28 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    ProfileComponent,
+    NavbarComponent,
+    GenreComponent,
+    DirectorComponent,
+    SynopsisComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatDialogModule,
+    MatButtonModule, 
+    MatCardModule, 
+    MatFormFieldModule, 
+    MatDialogModule, 
     MatSnackBarModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes),
     MatIconModule,
-    RouterModule.forRoot(appRoutes)
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
